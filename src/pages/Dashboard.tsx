@@ -164,7 +164,7 @@ const Dashboard: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="bg-white"
         >
-         <div className="flex w-full flex-col items-center justify-center gap-12 px-6">
+         <div className="flex w-full flex-col items-center justify-center gap-12 px-6 py-32">
   <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-4">
     <span className="w-full font-['Montserrat'] text-[30px] font-[700] leading-[34px] text-default-font -tracking-[0.025em]">
       Unlock different categories of agents, all in seconds!
