@@ -86,53 +86,7 @@ const Dashboard: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 p-6">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Hero Section */}
-        <div className="text-center space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              AlgoAgent
-            </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-white">
-              Decentralized AI Agent Launchpad
-            </p>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Create, tokenize, and deploy AI agents on the Algorand blockchain. 
-              Build social influencers, AI companions, and game masters with our no-code platform.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link to="/create">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg shadow-purple-500/25"
-              >
-                <Sparkles className="w-6 h-6" />
-                <span>Create Your First Agent</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-            </Link>
-            <Link to="/marketplace">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-3 bg-gray-800/50 border border-gray-600/50 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-700/50 transition-all duration-200"
-              >
-                <Users className="w-6 h-6" />
-                <span>Explore Marketplace</span>
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
+       
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
