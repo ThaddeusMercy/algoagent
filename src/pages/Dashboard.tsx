@@ -114,7 +114,7 @@ const Dashboard: React.FC = () => {
 
 
         {/* Stats Grid */}
-       <div className="flex w-full flex-col items-center justify-center gap-6">
+       <div className="flex w-full flex-col items-center justify-center gap-6 bg-brand-900 px-6 py-32">
   <div className="flex w-full max-w-[1280px] grow shrink-0 basis-0 flex-wrap items-center justify-center gap-12">
     <div className="flex grow shrink-0 basis-0 flex-col items-center justify-center gap-2 self-stretch">
       <div className="flex w-full min-w-[320px] max-w-[576px] grow shrink-0 basis-0 flex-col items-center justify-center gap-2 overflow-hidden">
@@ -222,8 +222,45 @@ const Dashboard: React.FC = () => {
       </div>
     </div>
   </div>
-</div>
+</div>  
         </motion.div>
+
+
+        <div className="flex w-full flex-col items-center bg-brand-900 px-6 py-24 mobile:px-6 mobile:py-24">
+  <div className="flex w-full max-w-[1280px] flex-col items-start justify-center gap-8 py-24">
+    <span className="whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
+      {"DEPLOY INTELLIGENT AGENTS, FAST"}
+    </span>
+    <span className="max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white -tracking-[0.015em]">
+      {
+        "Imagine a decentralized galaxy where anyone can summon autonomous agents in seconds.\nNo code. No gatekeepers. Just pure agent autonomy, ready to serve, play, or build beside you.\n\n\n"
+      }
+    </span>
+  </div>
+  <div className="flex w-full max-w-[1280px] flex-col items-end gap-8 py-24">
+    <div className="flex w-full max-w-[1024px] flex-col items-start justify-center gap-12">
+      <div className="flex h-192 w-full flex-none flex-col items-center justify-center gap-2 overflow-hidden">
+        <img
+          className="w-full grow shrink-0 basis-0 object-cover"
+          src="https://res.cloudinary.com/subframe/image/upload/v1723780611/uploads/302/lbaowphtt6gfvgjr10b4.png"
+        />
+      </div>
+      <span className="whitespace-pre-wrap font-['Montserrat'] text-[22px] font-[600] leading-[26px] text-white -tracking-[0.015em]">
+        {
+          "The Chain Agent vessel is your launchpad for navigating the decentralized agentverse.\nEngineered for sovereign creation, it’s built to minimize complexity while maximizing reach. With just one prompt, you deploy autonomous agents ready to operate, entertain, or assist—across blockchains, platforms, and dimensions.\n\n"
+        }
+      </span>
+      <Button
+        variant="brand-secondary"
+        size="large"
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+      >
+        Create your agent
+      </Button>
+    </div>
+  </div>
+</div>
+
 
         {/* How It Works */}
         <motion.div
