@@ -269,33 +269,57 @@ const Dashboard: React.FC = () => {
           transition={{ delay: 0.6 }}
           className="bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700/50 p-8"
         >
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">How It Works</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-white">1</span>
-              </div>
-              <h3 className="text-xl font-bold text-white">Token Acquisition</h3>
-              <p className="text-gray-400">Purchase platform tokens on supported DEX and hold minimum required tokens (1000 ALGO)</p>
-            </div>
-            
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-white">2</span>
-              </div>
-              <h3 className="text-xl font-bold text-white">Agent Creation</h3>
-              <p className="text-gray-400">Select agent category, describe desired behavior, and review AI-generated profile</p>
-            </div>
-            
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-white">3</span>
-              </div>
-              <h3 className="text-xl font-bold text-white">Deployment</h3>
-              <p className="text-gray-400">Pay deployment fee, agent automatically deploys with token generation</p>
-            </div>
-          </div>
+         <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-font px-6 py-32">
+  <div className="flex w-full flex-col items-center justify-center gap-6">
+    <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-white text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
+      {"EASY STEPS FOR YOUR AGENT ACTIVATION"}
+    </span>
+  </div>
+  <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-6">
+    <div className="flex w-full grow shrink-0 basis-0 flex-wrap items-center rounded-[32px] bg-default-background">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12">
+        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] font-[900] leading-[40px] text-default-font text-center -tracking-[0.03em]">
+          {"TOKEN ACQUISITION\n"}
+        </span>
+      </div>
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12">
+        <span className="max-w-[576px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
+          {
+            "Purchase platform tokens on supported DEX and hold minimum required tokens (1000 ALGO)\n\n"
+          }
+        </span>
+      </div>
+    </div>
+    <div className="flex w-full grow shrink-0 basis-0 flex-wrap items-center rounded-[32px] bg-default-background">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12">
+        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] font-[900] leading-[40px] text-default-font text-center -tracking-[0.03em]">
+          {"AGENT CREATION\n"}
+        </span>
+      </div>
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12">
+        <span className="max-w-[576px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
+          {
+            "Select agent category, describe desired behavior, and review AI-generated profile\n\n\n"
+          }
+        </span>
+      </div>
+    </div>
+    <div className="flex w-full grow shrink-0 basis-0 flex-wrap items-center rounded-[32px] bg-default-background">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12">
+        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] font-[900] leading-[40px] text-default-font text-center -tracking-[0.03em]">
+          {"DEPLOYMENT\n"}
+        </span>
+      </div>
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12">
+        <span className="max-w-[576px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
+          {
+            "Pay deployment fee, agent automatically deploys with token generation\n\n\n"
+          }
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
         </motion.div>
 
         {/* Recent Activity */}
