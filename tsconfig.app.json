@@ -6,9 +6,9 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": ".",
-"paths": {
-  "@/ui/*": ["./src/ui/*"]
-},
+    "paths": {
+    "@/ui/*": ["./src/ui/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
