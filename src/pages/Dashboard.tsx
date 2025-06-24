@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Hero Section */}
-       <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-3 mobile:px-6 mobile:py-32">
+       <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
   <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
     {"CHAIN AGENT:\nDECENTRALIZED AI AGENT  "}
   </span>
