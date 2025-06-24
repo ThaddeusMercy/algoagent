@@ -322,12 +322,12 @@ const Dashboard: React.FC = () => {
 </div>
         </motion.div>
 
-        {/* Recent Activity */}
+        {/* FAQ*/}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700/50 p-6"
+          className=""
         >
           <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-background px-6 py-32">
   <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
