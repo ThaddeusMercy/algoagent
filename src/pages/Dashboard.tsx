@@ -114,27 +114,48 @@ const Dashboard: React.FC = () => {
 
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className={`bg-gray-800/50 backdrop-blur-md rounded-2xl border ${stat.bg} p-6 hover:scale-105 transition-transform duration-200`}
-            >
-              <div className="flex items-center space-x-4">
-                <div className={`p-3 rounded-xl ${stat.bg}`}>
-                  <stat.icon className={`w-6 h-6 ${stat.color}`} />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
-                  <p className="text-2xl font-bold text-white">{stat.value}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+       <div className="flex w-full flex-col items-center justify-center gap-6 bg-brand-900 px-6 py-32">
+  <div className="flex w-full max-w-[1280px] grow shrink-0 basis-0 flex-wrap items-center justify-center gap-12">
+    <div className="flex grow shrink-0 basis-0 flex-col items-center justify-center gap-2 self-stretch">
+      <div className="flex w-full min-w-[320px] max-w-[576px] grow shrink-0 basis-0 flex-col items-center justify-center gap-2 overflow-hidden">
+        <img
+          className="w-full grow shrink-0 basis-0 object-cover"
+          src="https://res.cloudinary.com/subframe/image/upload/v1723780730/uploads/302/bfoixbupgy9opiv7ljrb.png"
+        />
+      </div>
+    </div>
+    <div className="flex min-w-[320px] grow shrink-0 basis-0 flex-col items-start justify-center gap-24 self-stretch py-12">
+      <div className="flex max-w-[576px] flex-col items-start justify-center gap-4">
+        <span className="w-full max-w-[576px] font-['Montserrat'] text-[50px] font-[700] leading-[56px] text-brand-300 -tracking-[0.025em] mobile:font-['Montserrat'] mobile:text-[44px] mobile:font-[700] mobile:leading-[48px] mobile:tracking-normal">
+          How fast can you summon your on-chain AI Agent?
+        </span>
+        <span className="whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-white -tracking-[0.01em]">
+          {
+            "With Chain Agent, deploying an AI agent is as instant as a prompt. Just describe your idea, and our no-code builder assembles, personalizes, and launches your decentralized agent on-chain.\n\nFrom social personas to RPG game masters, creation takes minutes — not cycles of Jupiter.\n\n"
+          }
+        </span>
+      </div>
+      <div className="flex w-full flex-wrap items-start gap-6 rounded-[32px] border border-solid border-neutral-border bg-default-background px-8 py-12 mobile:flex-col mobile:flex-wrap mobile:gap-6">
+        <div className="flex grow shrink-0 basis-0 flex-col items-start gap-2">
+          <span className="whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-default-font -tracking-[0.015em]">
+            {"AI Companion\t"}
+          </span>
+          <span className="whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[600] leading-[28px] text-brand-900 -tracking-[0.015em]">
+            {"Game Master Agent\t"}
+          </span>
         </div>
+        <div className="flex grow shrink-0 basis-0 flex-col items-start gap-2">
+          <span className="whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-default-font -tracking-[0.015em]">
+            {"Expected arrival"}
+          </span>
+          <span className="whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[600] leading-[28px] text-brand-900 -tracking-[0.015em]">
+            {"2min"}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Agent Categories */}
         <motion.div
