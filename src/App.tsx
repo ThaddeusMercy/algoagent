@@ -3,12 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
-import CreateAgent from './pages/CreateAgent';
-import Agents from './pages/Agents';
-import Marketplace from './pages/Marketplace';
-import Chat from './pages/Chat';
-import Games from './pages/Games';
-import Swap from './pages/Swap';
 
 function App() {
   return (
@@ -22,13 +16,6 @@ function App() {
             </>
           } />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/create" element={<CreateAgent />} />
-          <Route path="/agents" element={<Agents />} />
-          <Route path="/marketplace" element={<Marketplace />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/swap" element={<Swap />} />
-          <Route path="/wallet" element={<div className="p-6 text-white">Wallet page coming soon...</div>} />
           <Route path="/settings" element={<div className="p-6 text-white">Settings page coming soon...</div>} />
           <Route path="/profile" element={<div className="p-6 text-white">Profile page coming soon...</div>} />
         </Routes>
