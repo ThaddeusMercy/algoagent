@@ -10,7 +10,7 @@ import {
   Accordion, 
   LinkButton, 
   IconButton 
-} from "@/ui";
+} from "../ui";
 
 
 const Dashboard: React.FC = () => {
@@ -84,7 +84,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto space-y-8">
         {/* Hero Section */}
        <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
   <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
@@ -247,7 +246,7 @@ const Dashboard: React.FC = () => {
       </div>
       <span className="whitespace-pre-wrap font-['Montserrat'] text-[22px] font-[600] leading-[26px] text-white -tracking-[0.015em]">
         {
-          "The Chain Agent vessel is your launchpad for navigating the decentralized agentverse.\nEngineered for sovereign creation, it’s built to minimize complexity while maximizing reach. With just one prompt, you deploy autonomous agents ready to operate, entertain, or assist—across blockchains, platforms, and dimensions.\n\n"
+          "The Chain Agent vessel is your launchpad for navigating the decentralized agentverse.\nEngineered for sovereign creation, it's built to minimize complexity while maximizing reach. With just one prompt, you deploy autonomous agents ready to operate, entertain, or assist—across blockchains, platforms, and dimensions.\n\n"
         }
       </span>
       <Button
@@ -407,7 +406,7 @@ const Dashboard: React.FC = () => {
       <div className="flex w-full grow shrink-0 basis-0 flex-col items-start gap-6 px-4 py-4">
         <span className="w-full whitespace-pre-wrap font-['Montserrat'] text-[16px] font-[500] leading-[24px] text-default-font -tracking-[0.01em]">
           {
-            "Speed, low fees, and chain-native finality. Your agents won’t just act fast—they’ll exist in a network optimized for high-frequency, low-latency interactions.\n\n\n"
+            "Speed, low fees, and chain-native finality. Your agents won't just act fast—they'll exist in a network optimized for high-frequency, low-latency interactions.\n\n\n"
           }
         </span>
       </div>
@@ -415,10 +414,6 @@ const Dashboard: React.FC = () => {
   </div>
 </div>
         </motion.div>
-
-
-        
-      </div>
     </div>
   );
 };
