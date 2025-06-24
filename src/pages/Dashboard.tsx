@@ -14,7 +14,9 @@ import {
   Home,
   TrendingUp,
   Users,
-  LogOut
+  LogOut,
+  Menu,
+  X
 } from 'lucide-react';
 import { Button } from '../ui';
 
@@ -32,6 +34,7 @@ const Dashboard: React.FC = () => {
   const navigate = useNavigate();
   const { characters, loading } = useCharacters();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentView, setCurrentView] = useState('overview');
 
   const menuItems = [
@@ -85,6 +88,11 @@ const Dashboard: React.FC = () => {
     return currentView === view;
   };
 
+  const handleViewChange = (view: string) => {
+    setCurrentView(view);
+    setMobileMenuOpen(false);
+  };
+
   const renderMainContent = () => {
     switch (currentView) {
       case 'overview':
@@ -110,7 +118,7 @@ const Dashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-900 flex items-center justify-center">
+      <div className="min-h-screen bg-brand-900 flex items-center justify-center px-4">
         <div className="flex flex-col items-center space-y-6">
           <div className="relative">
             <div className="w-16 h-16 bg-brand-600 rounded-xl flex items-center justify-center">
@@ -119,10 +127,10 @@ const Dashboard: React.FC = () => {
             <div className="absolute inset-0 w-16 h-16 border-4 border-brand-400 border-t-transparent rounded-xl animate-spin" />
           </div>
           <div className="text-center">
-            <h2 className="font-['Montserrat'] text-[24px] font-[700] text-white mb-2">
+            <h2 className="font-['Montserrat'] text-[20px] sm:text-[24px] font-[700] text-white mb-2">
               Chain Agent
             </h2>
-            <p className="font-['Montserrat'] text-[16px] font-[400] text-white/80">
+            <p className="font-['Montserrat'] text-[14px] sm:text-[16px] font-[400] text-white/80">
               Loading Dashboard...
             </p>
           </div>
@@ -132,9 +140,9 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-brand-900 flex">
-      {/* Sidebar */}
-      <div className={`${sidebarCollapsed ? 'w-16' : 'w-64'} bg-neutral-800 border-r border-amber-900/20 flex flex-col transition-all duration-300`}>
+    <div className="min-h-screen bg-brand-900 flex flex-col lg:flex-row">
+      {/* Desktop Sidebar */}
+      <div className={`hidden lg:flex ${sidebarCollapsed ? 'w-16' : 'w-64'} bg-neutral-800 border-r border-amber-900/20 flex-col transition-all duration-300`}>
         {/* Logo Section */}
         <div className="p-6 border-b border-amber-900/20">
           <div 
@@ -211,27 +219,105 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 bg-black/50 z-50" onClick={() => setMobileMenuOpen(false)} />
+      )}
+
+      {/* Mobile Sidebar */}
+      <div className={`lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-neutral-800 border-r border-amber-900/20 transform transition-transform duration-300 z-50 ${
+        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}>
+        {/* Logo Section */}
+        <div className="p-6 border-b border-amber-900/20 flex items-center justify-between">
+          <div 
+            className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => window.location.href = '/'}
+          >
+            <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+              <Bot className="w-5 h-5 text-white" />
+            </div>
+            <span className="font-['Montserrat'] text-[20px] font-[700] text-white">
+              Chain Agent
+            </span>
+          </div>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-2 text-white hover:bg-default-300/20 rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex-1 flex flex-col justify-between py-6 h-[calc(100vh-120px)] overflow-y-auto">
+          <nav className="space-y-2 px-4">
+            {menuItems.map((item) => (
+              <button
+                key={item.view}
+                onClick={() => handleViewChange(item.view)}
+                className={`w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-colors ${
+                  isActive(item.view)
+                    ? 'bg-brand-600 text-white'
+                    : 'text-white hover:bg-default-300/20'
+                }`}
+              >
+                <item.icon className="w-5 h-5 flex-shrink-0" />
+                <span className="font-['Montserrat'] text-[14px] font-[500]">
+                  {item.label}
+                </span>
+              </button>
+            ))}
+          </nav>
+
+          {/* Bottom Menu */}
+          <div className="space-y-2 px-4 border-t border-amber-900/20 pt-6">
+            {bottomMenuItems.map((item) => (
+              <button
+                key={item.path}
+                onClick={() => {
+                  navigate(item.path);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-colors text-white hover:bg-default-300/20"
+              >
+                <item.icon className="w-5 h-5 flex-shrink-0" />
+                <span className="font-['Montserrat'] text-[14px] font-[500]">
+                  {item.label}
+                </span>
+              </button>
+            ))}
+            
+            <button
+              onClick={() => {/* Add logout logic */}}
+              className="w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-colors text-error-600 hover:bg-error-900/20"
+            >
+              <LogOut className="w-5 h-5 flex-shrink-0" />
+              <span className="font-['Montserrat'] text-[14px] font-[500]">
+                Logout
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col lg:pb-0 pb-20">
         {/* Header */}
-        <header className="bg-neutral-800 border-b border-amber-900/20 px-6 py-4">
+        <header className="bg-neutral-800 border-b border-amber-900/20 px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
-                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                onClick={() => window.innerWidth >= 1024 ? setSidebarCollapsed(!sidebarCollapsed) : setMobileMenuOpen(true)}
                 className="p-2 hover:bg-default-300/20 rounded-lg transition-colors"
               >
-                <div className="w-5 h-5 flex flex-col gap-1">
-                  <div className="w-full h-0.5 bg-white rounded"></div>
-                  <div className="w-full h-0.5 bg-white rounded"></div>
-                  <div className="w-full h-0.5 bg-white rounded"></div>
-                </div>
+                <Menu className="w-5 h-5 text-white" />
               </button>
-              <div>
-                <h1 className="font-['Montserrat'] text-[24px] font-[700] text-white">
+              <div className="hidden sm:block">
+                <h1 className="font-['Montserrat'] text-[20px] sm:text-[24px] font-[700] text-white">
                   Dashboard Overview
                 </h1>
-                <p className="font-['Montserrat'] text-[14px] font-[400] text-white/60">
+                <p className="font-['Montserrat'] text-[12px] sm:text-[14px] font-[400] text-white/60">
                   Welcome back! Here's what's happening with your agents.
                 </p>
               </div>
@@ -240,22 +326,54 @@ const Dashboard: React.FC = () => {
             <div className="flex items-center gap-3">
               <Button
                 variant="brand-primary"
+                size={window.innerWidth < 640 ? "small" : "medium"}
                 onClick={() => setCurrentView('create')}
                 icon={<Plus className="w-4 h-4" />}
+                className="hidden sm:flex"
               >
                 Create Agent
               </Button>
-              <div className="w-10 h-10 bg-brand-600 rounded-full flex items-center justify-center">
-                <User className="w-5 h-5 text-white" />
+              <Button
+                variant="brand-primary"
+                size="small"
+                onClick={() => setCurrentView('create')}
+                className="sm:hidden"
+              >
+                <Plus className="w-4 h-4" />
+              </Button>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-600 rounded-full flex items-center justify-center">
+                <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
             </div>
           </div>
         </header>
 
         {/* Dashboard Content */}
-        <main className="flex-1">
+        <main className="flex-1 overflow-auto">
           {renderMainContent()}
         </main>
+      </div>
+
+      {/* Mobile Bottom Navigation */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-neutral-800 border-t border-amber-900/20 px-4 py-2 z-40">
+        <div className="flex items-center justify-around">
+          {menuItems.slice(0, 5).map((item) => (
+            <button
+              key={item.view}
+              onClick={() => setCurrentView(item.view)}
+              className={`flex flex-col items-center gap-1 px-2 py-2 rounded-lg transition-colors ${
+                isActive(item.view)
+                  ? 'text-brand-400'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              <item.icon className="w-5 h-5" />
+              <span className="font-['Montserrat'] text-[10px] font-[500]">
+                {item.label.split(' ')[0]}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
