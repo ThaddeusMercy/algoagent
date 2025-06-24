@@ -114,7 +114,7 @@ const Dashboard: React.FC = () => {
 
 
         {/* Stats Grid */}
-       <div className="flex w-full flex-col items-center justify-center gap-6 bg-brand-900 px-6 py-32">
+       <div className="flex w-full flex-col items-center justify-center gap-6">
   <div className="flex w-full max-w-[1280px] grow shrink-0 basis-0 flex-wrap items-center justify-center gap-12">
     <div className="flex grow shrink-0 basis-0 flex-col items-center justify-center gap-2 self-stretch">
       <div className="flex w-full min-w-[320px] max-w-[576px] grow shrink-0 basis-0 flex-col items-center justify-center gap-2 overflow-hidden">
