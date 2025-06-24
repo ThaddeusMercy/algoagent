@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCharacters } from '../hooks/useCharacters';
 import { TrendingUp, Users, Gamepad2, Wallet, Bot, Zap, Sparkles, MessageCircle, Crown, Heart, Dice6, ArrowRight, Star } from 'lucide-react';
-import { Button } from '@/ui/components/Button';
+
 
 const Dashboard: React.FC = () => {
   const { characters, loading } = useCharacters();
