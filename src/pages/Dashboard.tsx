@@ -164,38 +164,7 @@ const Dashboard: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="space-y-6"
         >
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-2">Agent Categories</h2>
-            <p className="text-gray-400">Choose from three powerful agent types to bring your vision to life</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {agentCategories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                className="bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700/50 p-8 hover:scale-105 transition-all duration-300 group cursor-pointer"
-              >
-                <div className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-200`}>
-                  <category.icon className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-4">{category.title}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{category.description}</p>
-                
-                <div className="space-y-2">
-                  {category.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
-                      <Star className="w-4 h-4 text-yellow-500" />
-                      <span className="text-gray-400 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+         
         </motion.div>
 
         {/* How It Works */}
