@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCharacters } from '../hooks/useCharacters';
 import { TrendingUp, Users, Gamepad2, Wallet, Bot, Zap, Sparkles, MessageCircle, Crown, Heart, Dice6, ArrowRight, Star } from 'lucide-react';
 import { 
@@ -15,6 +15,7 @@ import {
 
 const Dashboard: React.FC = () => {
   const { characters, loading } = useCharacters();
+  const navigate = useNavigate();
 
   const stats = [
     {
@@ -97,14 +98,14 @@ const Dashboard: React.FC = () => {
   <div className="flex flex-wrap items-center justify-center gap-6">
     <Button
       size="large"
-      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+      onClick={() => navigate('/create')}
     >
       Create Your First Agent
     </Button>
     <Button
       variant="brand-secondary"
       size="large"
-      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+      onClick={() => navigate('/marketplace')}
     >
       Explore Marketplace
     </Button>
@@ -252,7 +253,7 @@ const Dashboard: React.FC = () => {
       <Button
         variant="brand-secondary"
         size="large"
-        onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        onClick={() => navigate('/create')}
       >
         Create your agent
       </Button>
