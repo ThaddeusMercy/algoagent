@@ -108,26 +108,26 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
     switch (currentStep) {
       case 1:
         return (
-          <div className="flex w-full flex-col items-center justify-center gap-12 px-6 py-12">
-            <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
-              <span className="w-full font-['Montserrat'] text-[48px] font-[900] leading-[48px] text-white text-center -tracking-[0.04em]">
+          <div className="flex w-full flex-col items-center justify-center gap-8 sm:gap-12 px-4 sm:px-6 py-8 sm:py-12">
+            <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-6 sm:gap-8">
+              <span className="w-full font-['Montserrat'] text-[32px] sm:text-[40px] lg:text-[48px] font-[900] leading-[1.1] text-white text-center -tracking-[0.04em]">
                 Choose Your Agent Type
               </span>
-              <span className="max-w-[576px] font-['Montserrat'] text-[18px] font-[400] leading-[24px] text-white/80 text-center">
+              <span className="max-w-[576px] font-['Montserrat'] text-[16px] sm:text-[18px] font-[400] leading-[24px] text-white/80 text-center px-4">
                 Select the type of AI agent you want to create and deploy on the Algorand blockchain
               </span>
             </div>
 
-            <div className="flex w-full max-w-[1280px] flex-wrap items-center justify-center gap-6">
+            <div className="flex w-full max-w-[1280px] flex-col lg:flex-row lg:flex-wrap items-center justify-center gap-4 sm:gap-6">
               {agentTypes.map((type) => (
                 <motion.div
                   key={type.id}
                   onClick={() => setSelectedType(type.id)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`flex min-h-[320px] min-w-[280px] max-w-[320px] grow shrink-0 basis-0 flex-col items-start justify-between gap-6 self-stretch rounded-[24px] px-6 py-6 cursor-pointer transition-all duration-200 ${
+                  className={`flex min-h-[280px] sm:min-h-[320px] w-full lg:min-w-[280px] lg:max-w-[320px] lg:grow lg:shrink-0 lg:basis-0 flex-col items-start justify-between gap-4 sm:gap-6 self-stretch rounded-[16px] sm:rounded-[24px] px-4 sm:px-6 py-4 sm:py-6 cursor-pointer transition-all duration-200 ${
                     type.color
-                  } ${selectedType === type.id ? 'ring-4 ring-white/50' : ''}`}
+                  } ${selectedType === type.id ? 'ring-2 sm:ring-4 ring-white/50' : ''}`}
                 >
                   <div className="flex w-full flex-col items-start justify-start gap-4">
                     <div className={`flex w-12 h-12 items-center justify-center rounded-xl ${
@@ -187,17 +187,17 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
 
       case 2:
         return (
-          <div className="flex w-full flex-col items-center justify-center gap-8 px-6 py-12">
-            <div className="flex w-full max-w-[768px] flex-col items-center justify-center gap-6">
-              <span className="w-full font-['Montserrat'] text-[48px] font-[900] leading-[48px] text-white text-center">
+          <div className="flex w-full flex-col items-center justify-center gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12">
+            <div className="flex w-full max-w-[768px] flex-col items-center justify-center gap-4 sm:gap-6">
+              <span className="w-full font-['Montserrat'] text-[32px] sm:text-[40px] lg:text-[48px] font-[900] leading-[1.1] text-white text-center">
                 Configure Your Agent
               </span>
-              <span className="max-w-[576px] font-['Montserrat'] text-[18px] font-[400] leading-[24px] text-white/80 text-center">
+              <span className="max-w-[576px] font-['Montserrat'] text-[16px] sm:text-[18px] font-[400] leading-[24px] text-white/80 text-center px-4">
                 Define your agent's personality, behavior, and core characteristics
               </span>
             </div>
 
-            <div className="flex w-full max-w-[768px] flex-col gap-6">
+            <div className="flex w-full max-w-[768px] flex-col gap-4 sm:gap-6">
               <div className="flex w-full flex-col gap-3">
                 <span className="font-['Montserrat'] text-[16px] font-[600] text-white">
                   Agent Name
@@ -264,17 +264,17 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
 
       case 3:
         return (
-          <div className="flex w-full flex-col items-center justify-center gap-8 px-6 py-12">
-            <div className="flex w-full max-w-[768px] flex-col items-center justify-center gap-6">
-              <span className="w-full font-['Montserrat'] text-[48px] font-[900] leading-[48px] text-white text-center">
+          <div className="flex w-full flex-col items-center justify-center gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12">
+            <div className="flex w-full max-w-[768px] flex-col items-center justify-center gap-4 sm:gap-6">
+              <span className="w-full font-['Montserrat'] text-[32px] sm:text-[40px] lg:text-[48px] font-[900] leading-[1.1] text-white text-center">
                 Voice & Token Settings
               </span>
-              <span className="max-w-[576px] font-['Montserrat'] text-[18px] font-[400] leading-[24px] text-white/80 text-center">
+              <span className="max-w-[576px] font-['Montserrat'] text-[16px] sm:text-[18px] font-[400] leading-[24px] text-white/80 text-center px-4">
                 Configure voice capabilities and tokenization for your agent
               </span>
             </div>
 
-            <div className="flex w-full max-w-[768px] flex-col gap-6">
+            <div className="flex w-full max-w-[768px] flex-col gap-4 sm:gap-6">
               {/* Voice Settings */}
               <div className="flex w-full flex-col gap-6 rounded-[20px] border border-amber-800/30 bg-neutral-700/50 px-6 py-6">
                 <div className="flex items-center gap-3">
@@ -339,8 +339,8 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
                   </div>
 
                   {agentData.generateToken && (
-                    <div className="flex w-full flex-wrap gap-4">
-                      <div className="flex min-w-[200px] grow shrink-0 basis-0 flex-col gap-3">
+                    <div className="flex w-full flex-col sm:flex-row gap-4">
+                      <div className="flex flex-1 flex-col gap-3">
                         <span className="font-['Montserrat'] text-[14px] font-[600] text-white">
                           Token Name
                         </span>
@@ -352,7 +352,7 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
                           className="w-full px-4 py-3 font-['Montserrat'] text-[14px] bg-neutral-600 border border-neutral-500 rounded-[12px] text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-brand-600"
                         />
                       </div>
-                      <div className="flex min-w-[200px] grow shrink-0 basis-0 flex-col gap-3">
+                      <div className="flex flex-1 flex-col gap-3">
                         <span className="font-['Montserrat'] text-[14px] font-[600] text-white">
                           Token Symbol
                         </span>
@@ -374,17 +374,17 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
 
       case 4:
         return (
-          <div className="flex w-full flex-col items-center justify-center gap-8 px-6 py-12">
-            <div className="flex w-full max-w-[768px] flex-col items-center justify-center gap-6">
-              <span className="w-full font-['Montserrat'] text-[48px] font-[900] leading-[48px] text-white text-center">
+          <div className="flex w-full flex-col items-center justify-center gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12">
+            <div className="flex w-full max-w-[768px] flex-col items-center justify-center gap-4 sm:gap-6">
+              <span className="w-full font-['Montserrat'] text-[32px] sm:text-[40px] lg:text-[48px] font-[900] leading-[1.1] text-white text-center">
                 Review & Deploy
               </span>
-              <span className="max-w-[576px] font-['Montserrat'] text-[18px] font-[400] leading-[24px] text-white/80 text-center">
+              <span className="max-w-[576px] font-['Montserrat'] text-[16px] sm:text-[18px] font-[400] leading-[24px] text-white/80 text-center px-4">
                 Review your agent configuration before deploying to the blockchain
               </span>
             </div>
 
-            <div className="flex w-full max-w-[768px] flex-col gap-6">
+            <div className="flex w-full max-w-[768px] flex-col gap-4 sm:gap-6">
               <div className="flex w-full flex-col gap-6 rounded-[20px] border border-amber-800/30 bg-neutral-700 px-6 py-6">
                 <div className="flex items-center gap-4">
                   {selectedAgentType && (
@@ -402,7 +402,7 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div className="flex flex-col gap-2">
                     <span className="font-['Montserrat'] text-[16px] font-[600] text-white">
                       Description
@@ -489,27 +489,28 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
 
   if (creationComplete) {
     return (
-      <div className="flex w-full min-h-full flex-col items-center justify-center gap-8 px-6 py-12">
+      <div className="flex w-full min-h-full flex-col items-center justify-center gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-4 sm:gap-6"
         >
-          <div className="w-24 h-24 bg-success-600 rounded-full flex items-center justify-center">
-            <CheckCircle className="w-12 h-12 text-white" />
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-success-600 rounded-full flex items-center justify-center">
+            <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
           </div>
           <div className="flex flex-col items-center gap-3">
-            <span className="font-['Montserrat'] text-[48px] font-[900] leading-[48px] text-white text-center">
+            <span className="font-['Montserrat'] text-[32px] sm:text-[40px] lg:text-[48px] font-[900] leading-[1.1] text-white text-center px-4">
               Agent Created Successfully!
             </span>
-            <span className="font-['Montserrat'] text-[20px] font-[500] text-white/80 text-center">
+            <span className="font-['Montserrat'] text-[16px] sm:text-[18px] lg:text-[20px] font-[500] text-white/80 text-center px-4">
               Your AI agent is now live on the Algorand blockchain
             </span>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
             <Button
               size="large"
               onClick={() => setCurrentView('agents')}
+              className="w-full sm:w-auto"
             >
               View Agent
             </Button>
@@ -517,6 +518,7 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
               variant="brand-secondary"
               size="large"
               onClick={resetCreateAgent}
+              className="w-full sm:w-auto"
             >
               Create Another
             </Button>
@@ -529,12 +531,12 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
   return (
     <div className="flex flex-col h-full">
       {/* Progress Section */}
-      <div className="flex w-full flex-col items-center justify-center gap-6 px-6 py-8">
+      <div className="flex w-full flex-col items-center justify-center gap-4 sm:gap-6 px-4 sm:px-6 py-6 sm:py-8">
         <div className="flex w-full max-w-[1024px] items-center justify-between">
-          <span className="font-['Montserrat'] text-[32px] font-[900] leading-[32px] text-white">
+          <span className="font-['Montserrat'] text-[24px] sm:text-[28px] lg:text-[32px] font-[900] leading-[1.1] text-white">
             Create AI Agent
           </span>
-          <span className="font-['Montserrat'] text-[16px] font-[500] text-white/60">
+          <span className="font-['Montserrat'] text-[14px] sm:text-[16px] font-[500] text-white/60">
             Step {currentStep} of 4
           </span>
         </div>
@@ -562,37 +564,42 @@ const CreateAgentSection: React.FC<CreateAgentSectionProps> = ({ setCurrentView 
       </div>
 
       {/* Navigation */}
-      <div className="flex w-full items-center justify-center px-6 py-6">
-        <div className="flex w-full max-w-[1024px] items-center justify-between">
+      <div className="flex w-full items-center justify-center px-4 sm:px-6 py-4 sm:py-6">
+        <div className="flex w-full max-w-[1024px] items-center justify-between gap-4">
           <Button
             variant="neutral-secondary"
-            size="large"
+            size={window.innerWidth < 640 ? "medium" : "large"}
             onClick={handleBack}
             disabled={currentStep === 1}
-            icon={<ArrowLeft className="w-5 h-5" />}
+            icon={<ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />}
+            className="flex-shrink-0"
           >
-            Back
+            <span className="hidden sm:inline">Back</span>
+            <span className="sm:hidden">Back</span>
           </Button>
 
           {currentStep === 4 ? (
             <Button
-              size="large"
+              size={window.innerWidth < 640 ? "medium" : "large"}
               onClick={handleCreateAgent}
               disabled={isCreating || !selectedType || !agentData.name}
               icon={isCreating ? (
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               ) : (
-                <Sparkles className="w-5 h-5" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               )}
+              className="flex-shrink-0"
             >
-              {isCreating ? 'Creating Agent...' : 'Deploy Agent'}
+              <span className="hidden sm:inline">{isCreating ? 'Creating Agent...' : 'Deploy Agent'}</span>
+              <span className="sm:hidden">{isCreating ? 'Creating...' : 'Deploy'}</span>
             </Button>
           ) : (
             <Button
-              size="large"
+              size={window.innerWidth < 640 ? "medium" : "large"}
               onClick={handleNext}
               disabled={currentStep === 1 && !selectedType}
-              iconRight={<ArrowRight className="w-5 h-5" />}
+              iconRight={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />}
+              className="flex-shrink-0"
             >
               Next
             </Button>
