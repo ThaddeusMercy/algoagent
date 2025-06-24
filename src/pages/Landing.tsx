@@ -435,6 +435,29 @@ const Landing: React.FC = () => {
 </div>
         </motion.div>
         </section>
+
+        {/* Footer */}
+        <footer className="bg-brand-900 border-t border-gray-800">
+          <div className="max-w-6xl mx-auto px-6 py-12">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+              <div className="flex items-center space-x-2">
+                <Bot className="w-6 h-6 text-brand-300" />
+                <span className="font-['Montserrat'] text-lg font-bold text-white">Chain Agent</span>
+              </div>
+              
+              <div className="flex space-x-8 text-sm">
+                <a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a>
+                <a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a>
+                <a href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQ</a>
+                <a href="/dashboard" className="text-gray-400 hover:text-white transition-colors">Dashboard</a>
+              </div>
+              
+              <div className="text-sm text-gray-500">
+                © 2024 Chain Agent. All rights reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
     </div>
   );
 };
