@@ -11,15 +11,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@subframe/core": "^1.143.0",
-    "algosdk": "^2.7.0",
-    "axios": "^1.6.2",
-    "framer-motion": "^10.16.16",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "framer-motion": "^10.16.16",
     "react-router-dom": "^6.20.1",
-    "recharts": "^2.8.0"
+    "recharts": "^2.8.0",
+    "algosdk": "^2.7.0",
+    "axios": "^1.6.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
