@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', icon: Home, label: 'Dashboard' },
+    { path: '/dashboard', icon: Home, label: 'Dashboard' },
     { path: '/create', icon: Sparkles, label: 'Create Agent' },
     { path: '/agents', icon: Bot, label: 'My Agents' },
     { path: '/marketplace', icon: Users, label: 'Marketplace' },
