@@ -74,10 +74,22 @@ const Landing: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 flex items-center justify-center">
-        <div className="flex items-center space-x-4">
-          <div className="w-8 h-8 border-4 border-purple-500 border-t-transparent rounded-full animate-spin" />
-          <span className="text-white text-lg">Loading AlgoAgent...</span>
+      <div className="min-h-screen bg-brand-900 flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-6">
+          <div className="relative">
+            <div className="w-16 h-16 bg-brand-600 rounded-xl flex items-center justify-center">
+              <Bot className="w-8 h-8 text-white" />
+            </div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-brand-400 border-t-transparent rounded-xl animate-spin" />
+          </div>
+          <div className="text-center">
+            <h2 className="font-['Montserrat'] text-[24px] font-[700] text-white mb-2">
+              Chain Agent
+            </h2>
+            <p className="font-['Montserrat'] text-[16px] font-[400] text-white/80">
+              Initializing AI Launchpad...
+            </p>
+          </div>
         </div>
       </div>
     );
@@ -85,8 +97,9 @@ const Landing: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-        {/* Hero Section */}
-       <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
+        {/* About Section */}
+        <section id="about">
+         <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
   <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
     {"CHAIN AGENT:\nDECENTRALIZED AI AGENT  "}
   </span>
@@ -98,19 +111,20 @@ const Landing: React.FC = () => {
   <div className="flex flex-wrap items-center justify-center gap-6">
     <Button
       size="large"
-      onClick={() => navigate('/create')}
+      onClick={() => navigate('/dashboard')}
     >
       Create Your First Agent
     </Button>
     <Button
       variant="brand-secondary"
       size="large"
-      onClick={() => navigate('/marketplace')}
+      onClick={() => navigate('/dashboard')}
     >
       Explore Marketplace
     </Button>
   </div>
 </div>
+        </section>
 
 
         {/* Stats Grid */}
@@ -157,13 +171,14 @@ const Landing: React.FC = () => {
   </div>
 </div>
 
-        {/* Agent Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="bg-white"
-        >
+        {/* Features Section */}
+        <section id="features">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-white"
+          >
          <div className="flex w-full flex-col items-center justify-center gap-12 px-6 py-32">
   <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-4">
     <span className="w-full font-['Montserrat'] text-[30px] font-[700] leading-[34px] text-default-font -tracking-[0.025em]">
@@ -253,22 +268,24 @@ const Landing: React.FC = () => {
       <Button
         variant="brand-secondary"
         size="large"
-        onClick={() => navigate('/create')}
+        onClick={() => navigate('/dashboard')}
       >
         Create your agent
       </Button>
     </div>
   </div>
 </div>
+        </section>
 
 
-        {/* How It Works */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className=""
-        >
+        {/* How To Section */}
+        <section id="how-to">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className=""
+          >
          <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-font px-6 py-32">
   <div className="flex w-full flex-col items-center justify-center gap-6">
     <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-white text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
@@ -321,14 +338,16 @@ const Landing: React.FC = () => {
   </div>
 </div>
         </motion.div>
+        </section>
 
-        {/* FAQ*/}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className=""
-        >
+        {/* FAQ Section */}
+        <section id="faq">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className=""
+          >
           <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-background px-6 py-32">
   <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
     <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-brand-900 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
@@ -415,6 +434,7 @@ const Landing: React.FC = () => {
   </div>
 </div>
         </motion.div>
+        </section>
     </div>
   );
 };
