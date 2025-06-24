@@ -3,15 +3,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCharacters } from '../hooks/useCharacters';
 import { TrendingUp, Users, Gamepad2, Wallet, Bot, Zap, Sparkles, MessageCircle, Crown, Heart, Dice6, ArrowRight, Star } from 'lucide-react';
-import { BoldNavbar } from "@/ui/components/BoldNavbar";
-import { BoldNavbarMobile } from "@/ui/components/BoldNavbarMobile";
-import { Button } from "@/ui/components/Button";
-import { Accordion } from "@/ui/components/Accordion";
-import { LinkButton } from "@/ui/components/LinkButton";
-import { IconButton } from "@/ui/components/IconButton";
-import { FeatherTwitter } from "@subframe/core";
-import { FeatherGithub } from "@subframe/core";
-import { FeatherSlack } from "@subframe/core";
+import { 
+  BoldNavbar, 
+  BoldNavbarMobile, 
+  Button, 
+  Accordion, 
+  LinkButton, 
+  IconButton 
+} from "@/ui";
 
 
 const Dashboard: React.FC = () => {
