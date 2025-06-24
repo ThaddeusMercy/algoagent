@@ -20,7 +20,7 @@ import { Button } from '../ui';
 
 // Import section components
 import OverviewSection from '../components/OverviewSection';
-import MyAgentSection from '../components/MyAgentsSection';
+import MyAgentsSection from '../components/MyAgentsSection';
 import CreateAgentSection from '../components/CreateAgentSection';
 import MarketplaceSection from '../components/MarketplaceSection';
 import ChatSection from '../components/ChatSection';
