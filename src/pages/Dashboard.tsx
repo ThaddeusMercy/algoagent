@@ -162,7 +162,7 @@ const Dashboard: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="space-y-6"
+          className=""
         >
          <div className="flex w-full flex-col items-center justify-center gap-12 px-6 py-32">
   <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-4">
