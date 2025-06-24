@@ -329,44 +329,7 @@ const Dashboard: React.FC = () => {
           transition={{ delay: 0.7 }}
           className="bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700/50 p-6"
         >
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white flex items-center space-x-2">
-              <Zap className="w-6 h-6 text-yellow-500" />
-              <span>Recent Activity</span>
-            </h2>
-            <Link to="/agents" className="text-purple-400 hover:text-purple-300 transition-colors">
-              View All →
-            </Link>
-          </div>
           
-          <div className="space-y-4">
-            {characters.slice(0, 3).map((character) => (
-              <div key={character.id} className="flex items-center space-x-4 p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-colors">
-                <img
-                  src={character.avatar}
-                  alt={character.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div className="flex-1">
-                  <h3 className="text-white font-semibold">{character.name}</h3>
-                  <p className="text-gray-400 text-sm">Last active: {character.lastActivity}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-white font-semibold">Level {character.level}</p>
-                  <p className="text-gray-400 text-sm">{character.experience} XP</p>
-                </div>
-                <Link to="/chat">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-purple-600/20 border border-purple-500/30 rounded-lg text-purple-400 hover:bg-purple-600/30 transition-colors"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                  </motion.button>
-                </Link>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </div>
