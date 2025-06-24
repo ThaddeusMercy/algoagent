@@ -415,6 +415,161 @@ const Dashboard: React.FC = () => {
   </div>
 </div>
         </motion.div>
+
+
+       <div className="flex w-full flex-col items-center justify-center gap-6 border-t border-solid border-default-font bg-brand-600 px-6 py-24">
+  <div className="flex w-full max-w-[1280px] flex-col items-center gap-12">
+    <div className="flex w-full flex-wrap items-start gap-6">
+      <div className="hidden min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-6">
+        <span className="w-full font-['Montserrat'] text-[14px] font-[600] leading-[20px] text-default-font -tracking-[0.01em]">
+          Product
+        </span>
+        <div className="flex flex-col items-start gap-4">
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Accounts
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Business
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Platform
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Send &amp; receive
+          </LinkButton>
+        </div>
+      </div>
+      <div className="hidden min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-6">
+        <span className="w-full font-['Montserrat'] text-[14px] font-[600] leading-[20px] text-default-font -tracking-[0.01em]">
+          Company
+        </span>
+        <div className="flex flex-col items-start gap-4">
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Team
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Press
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Careers
+          </LinkButton>
+        </div>
+      </div>
+      <div className="hidden min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-6">
+        <span className="w-full font-['Montserrat'] text-[14px] font-[600] leading-[20px] text-default-font -tracking-[0.01em]">
+          Resources
+        </span>
+        <div className="flex flex-col items-start gap-4">
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            News
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Blog
+          </LinkButton>
+          <LinkButton
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          >
+            Help Center
+          </LinkButton>
+        </div>
+      </div>
+      <div className="hidden min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-4 self-stretch">
+        <span className="w-full font-['Montserrat'] text-[14px] font-[600] leading-[20px] text-default-font -tracking-[0.01em]">
+          Follow us
+        </span>
+        <div className="flex w-full items-center gap-2">
+          <IconButton
+            icon={<FeatherTwitter />}
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          />
+          <IconButton
+            icon={<FeatherGithub />}
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          />
+          <IconButton
+            icon={<FeatherSlack />}
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+          />
+        </div>
+      </div>
+    </div>
+    <div className="flex h-px w-full flex-none flex-col items-center gap-2 bg-neutral-200" />
+    <div className="hidden w-full flex-wrap items-start gap-6">
+      <div className="flex min-w-[144px] grow shrink-0 basis-0 items-start gap-2">
+        <img
+          className="h-6 flex-none object-cover"
+          src="https://res.cloudinary.com/subframe/image/upload/v1711417507/shared/y2rsnhq3mex4auk54aye.png"
+        />
+      </div>
+      <div className="hidden min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-4">
+        <LinkButton
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        >
+          Legal
+        </LinkButton>
+        <LinkButton
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        >
+          Give Feedback
+        </LinkButton>
+      </div>
+      <div className="hidden min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-4">
+        <LinkButton
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        >
+          Privacy Policy
+        </LinkButton>
+        <LinkButton
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        >
+          Terms of Service
+        </LinkButton>
+      </div>
+      <div className="flex min-w-[144px] grow shrink-0 basis-0 flex-col items-start gap-4">
+        <LinkButton
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        >
+          Cookie Policy
+        </LinkButton>
+        <LinkButton
+          className="hidden"
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+        >
+          Site Map
+        </LinkButton>
+      </div>
+    </div>
+    <div className="flex w-full max-w-[768px] flex-col items-center gap-4">
+      <span className="font-['Montserrat'] text-[14px] font-[500] leading-[20px] text-neutral-border text-center">
+        © Subframe 2025
+      </span>
+      <span className="font-['Montserrat'] text-[14px] font-[500] leading-[20px] text-neutral-border text-center">
+        Subframe is an intergalactic financial services company registered with
+        the Cosmic Union. It is authorized in most galaxies, subject to local
+        laws and regulations.
+      </span>
+    </div>
+  </div>
+</div>
+ 
       </div>
     </div>
   );
