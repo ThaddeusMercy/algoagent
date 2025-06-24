@@ -83,7 +83,7 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Hero Section */}
        <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
