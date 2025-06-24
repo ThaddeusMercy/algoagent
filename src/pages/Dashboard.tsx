@@ -164,7 +164,65 @@ const Dashboard: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="space-y-6"
         >
-         
+         <div className="flex w-full flex-col items-center justify-center gap-12 px-6 py-32">
+  <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-4">
+    <span className="w-full font-['Montserrat'] text-[30px] font-[700] leading-[34px] text-default-font -tracking-[0.025em]">
+      Unlock different categories of agents, all in seconds!
+    </span>
+  </div>
+  <div className="flex w-full flex-col items-center justify-center gap-4">
+    <div className="flex w-full max-w-[1024px] flex-wrap items-center justify-center gap-4">
+      <div className="flex min-h-[448px] min-w-[320px] max-w-[1280px] grow shrink-0 basis-0 flex-col items-start justify-end gap-8 self-stretch rounded-[32px] bg-brand-300 px-8 py-8">
+        <div className="flex w-full flex-col items-start justify-end gap-12 px-2 py-2">
+          <span className="w-full max-w-[448px] whitespace-pre-wrap font-['Montserrat'] text-[48px] font-[900] leading-[44px] text-brand-900 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[40px] mobile:font-[900] mobile:leading-[40px] mobile:tracking-normal">
+            {"Social Influencer Agents\n\n"}
+          </span>
+          <span className="w-full max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
+            {
+              "AI-powered social media personalities that engage with audiences naturally. Social Media Integration, Audience Engagement, Content Generation and Brand Partnerships\n\n\n\n"
+            }
+          </span>
+        </div>
+      </div>
+      <div className="flex min-h-[448px] min-w-[240px] max-w-[384px] grow shrink-0 basis-0 flex-col items-start justify-end gap-8 self-stretch rounded-[32px] bg-error-900 px-8 py-8 mobile:h-auto mobile:min-h-[448px] mobile:min-w-[240px] mobile:grow mobile:shrink-0 mobile:basis-0 mobile:self-stretch">
+        <div className="flex w-full flex-col items-start justify-end gap-12 px-2 py-2">
+          <span className="w-full max-w-[448px] whitespace-pre-wrap font-['Montserrat'] text-[48px] font-[900] leading-[44px] text-error-200 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[40px] mobile:font-[900] mobile:leading-[40px] mobile:tracking-normal">
+            {"AI Companions\n\n"}
+          </span>
+          <span className="w-full max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-white -tracking-[0.01em]">
+            {
+              "Personalized AI agents for meaningful one-on-one interactions. \n\n\n\n"
+            }
+          </span>
+        </div>
+      </div>
+    </div>
+    <div className="flex w-full max-w-[1024px] flex-wrap items-center justify-center gap-4">
+      <div className="flex min-h-[448px] min-w-[240px] max-w-[384px] grow shrink-0 basis-0 flex-col items-start justify-end gap-8 self-stretch rounded-[32px] bg-neutral-800 px-8 py-8 mobile:h-auto mobile:min-h-[448px] mobile:min-w-[240px] mobile:grow mobile:shrink-0 mobile:basis-0 mobile:self-stretch">
+        <div className="flex w-full flex-col items-start justify-end gap-12 px-2 py-2">
+          <span className="w-full max-w-[448px] whitespace-pre-wrap font-['Montserrat'] text-[48px] font-[900] leading-[44px] text-warning-200 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[40px] mobile:font-[900] mobile:leading-[40px] mobile:tracking-normal">
+            {"Game Master Agents\n\n"}
+          </span>
+          <span className="w-full max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-white -tracking-[0.01em]">
+            {
+              "Automated storytellers that create and run immersive RPG adventures\n\n\n"
+            }
+          </span>
+        </div>
+      </div>
+      <div className="flex min-h-[448px] min-w-[320px] max-w-[1280px] grow shrink-0 basis-0 flex-col items-start justify-end gap-8 self-stretch rounded-[32px] bg-error-200 px-8 py-8">
+        <div className="flex w-full flex-col items-start justify-end gap-12 px-2 py-2">
+          <span className="w-full max-w-[448px] whitespace-pre-wrap font-['Montserrat'] text-[48px] font-[900] leading-[44px] text-error-900 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[40px] mobile:font-[900] mobile:leading-[40px] mobile:tracking-normal">
+            {"Your Call"}
+          </span>
+          <span className="w-full max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
+            {"What AIAgent do you envision? your call!"}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </motion.div>
 
         {/* How It Works */}
