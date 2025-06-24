@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCharacters } from '../hooks/useCharacters';
 import { TrendingUp, Users, Gamepad2, Wallet, Bot, Zap, Sparkles, MessageCircle, Crown, Heart, Dice6, ArrowRight, Star } from 'lucide-react';
+import { Button } from '@/ui/components/Button';
 
 const Dashboard: React.FC = () => {
   const { characters, loading } = useCharacters();
@@ -76,53 +77,35 @@ const Dashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 p-6">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/* Hero Section */}
-        <div className="text-center space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              AlgoAgent
-            </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-white">
-              Decentralized AI Agent Launchpad
-            </p>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Create, tokenize, and deploy AI agents on the Algorand blockchain. 
-              Build social influencers, AI companions, and game masters with our no-code platform.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
+        {/* Hero Section - Replaced with Subframe UI */}
+        <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
+          <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
+            {"ALGOAGENT:\nDECENTRALIZED AI AGENT LAUNCHPAD"}
+          </span>
+          <span className="max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white text-center -tracking-[0.015em]">
+            {
+              "Create, tokenize, and deploy AI agents on the Algorand blockchain. Build social influencers, AI companions, and game masters with our no-code platform."
+            }
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-6">
             <Link to="/create">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg shadow-purple-500/25"
+              <Button
+                size="large"
+                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
               >
-                <Sparkles className="w-6 h-6" />
-                <span>Create Your First Agent</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
+                Create Your First Agent
+              </Button>
             </Link>
             <Link to="/marketplace">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-3 bg-gray-800/50 border border-gray-600/50 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-700/50 transition-all duration-200"
+              <Button
+                variant="brand-secondary"
+                size="large"
+                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
               >
-                <Users className="w-6 h-6" />
-                <span>Explore Marketplace</span>
-              </motion.button>
+                Explore Marketplace
+              </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* Stats Grid */}
