@@ -100,7 +100,7 @@ const Landing: React.FC = () => {
         {/* About Section */}
         <section id="about">
          <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
-  <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
+  <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[40px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
     {"CHAIN AGENT:\nDECENTRALIZED AI AGENT  "}
   </span>
   <span className="max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white text-center -tracking-[0.015em]">
@@ -108,10 +108,11 @@ const Landing: React.FC = () => {
       "Create, tokenize, and deploy AI agents on the Algorand blockchain. Build social influencers, AI companions, and game masters with our no-code platform.\n\n"
     }
   </span>
-  <div className="flex flex-wrap items-center justify-center gap-6">
+  <div className="flex flex-col mobile:flex-col sm:flex-row items-center justify-center gap-4 mobile:gap-3">
     <Button
       size="large"
       onClick={() => navigate('/dashboard')}
+      className="w-full mobile:w-full sm:w-auto"
     >
       Create Your First Agent
     </Button>
@@ -119,6 +120,7 @@ const Landing: React.FC = () => {
       variant="brand-secondary"
       size="large"
       onClick={() => navigate('/dashboard')}
+      className="w-full mobile:w-full sm:w-auto"
     >
       Explore Marketplace
     </Button>
@@ -129,7 +131,7 @@ const Landing: React.FC = () => {
 
         {/* Stats Grid */}
        <div className="flex w-full flex-col items-center justify-center gap-6 bg-brand-900 px-6 py-32">
-  <div className="flex w-full max-w-[1280px] grow shrink-0 basis-0 flex-wrap items-center justify-center gap-12">
+  <div className="flex w-full max-w-[1280px] grow shrink-0 basis-0 flex-col mobile:flex-col lg:flex-row items-center justify-center gap-12 mobile:gap-8">
     <div className="flex grow shrink-0 basis-0 flex-col items-center justify-center gap-2 self-stretch">
       <div className="flex w-full min-w-[320px] max-w-[576px] grow shrink-0 basis-0 flex-col items-center justify-center gap-2 overflow-hidden">
         <img
@@ -138,7 +140,7 @@ const Landing: React.FC = () => {
         />
       </div>
     </div>
-    <div className="flex min-w-[320px] grow shrink-0 basis-0 flex-col items-start justify-center gap-24 self-stretch py-12">
+    <div className="flex min-w-[320px] grow shrink-0 basis-0 flex-col items-start justify-center gap-24 mobile:gap-12 self-stretch py-12 mobile:py-6">
       <div className="flex max-w-[576px] flex-col items-start justify-center gap-4">
         <span className="w-full max-w-[576px] font-['Montserrat'] text-[50px] font-[700] leading-[56px] text-brand-300 -tracking-[0.025em] mobile:font-['Montserrat'] mobile:text-[44px] mobile:font-[700] mobile:leading-[48px] mobile:tracking-normal">
           How fast can you summon your on-chain AI Agent?
@@ -149,7 +151,7 @@ const Landing: React.FC = () => {
           }
         </span>
       </div>
-      <div className="flex w-full flex-wrap items-start gap-6 rounded-[32px] border border-solid border-neutral-border bg-default-background px-8 py-12 mobile:flex-col mobile:flex-wrap mobile:gap-6">
+              <div className="flex w-full flex-col mobile:flex-col sm:flex-row items-start gap-6 rounded-[32px] border border-solid border-neutral-border bg-default-background px-8 py-12 mobile:px-6 mobile:py-8">
         <div className="flex grow shrink-0 basis-0 flex-col items-start gap-2">
           <span className="whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-default-font -tracking-[0.015em]">
             {"AI Companion\t"}
@@ -243,7 +245,7 @@ const Landing: React.FC = () => {
 
         <div className="flex w-full flex-col items-center bg-brand-900 px-6 py-24 mobile:px-6 mobile:py-24">
   <div className="flex w-full max-w-[1280px] flex-col items-start justify-center gap-8 py-24">
-    <span className="whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
+    <span className="whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[42px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
       {"DEPLOY INTELLIGENT AGENTS, FAST"}
     </span>
     <span className="max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white -tracking-[0.015em]">
@@ -293,13 +295,13 @@ const Landing: React.FC = () => {
     </span>
   </div>
   <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-6">
-    <div className="flex w-full grow shrink-0 basis-0 flex-wrap items-center rounded-[32px] bg-default-background">
-      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12">
-        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] font-[900] leading-[40px] text-default-font text-center -tracking-[0.03em]">
+    <div className="flex w-full grow shrink-0 basis-0 flex-col mobile:flex-col lg:flex-row items-center rounded-[32px] bg-default-background">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12 mobile:px-6 mobile:py-8">
+        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] mobile:text-[32px] font-[900] leading-[40px] mobile:leading-[36px] text-default-font text-center -tracking-[0.03em]">
           {"TOKEN ACQUISITION\n"}
         </span>
       </div>
-      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12 mobile:px-6 mobile:py-8">
         <span className="max-w-[576px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
           {
             "Purchase platform tokens on supported DEX and hold minimum required tokens (1000 ALGO)\n\n"
@@ -307,13 +309,13 @@ const Landing: React.FC = () => {
         </span>
       </div>
     </div>
-    <div className="flex w-full grow shrink-0 basis-0 flex-wrap items-center rounded-[32px] bg-default-background">
-      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12">
-        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] font-[900] leading-[40px] text-default-font text-center -tracking-[0.03em]">
+    <div className="flex w-full grow shrink-0 basis-0 flex-col mobile:flex-col lg:flex-row items-center rounded-[32px] bg-default-background">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12 mobile:px-6 mobile:py-8">
+        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] mobile:text-[32px] font-[900] leading-[40px] mobile:leading-[36px] text-default-font text-center -tracking-[0.03em]">
           {"AGENT CREATION\n"}
         </span>
       </div>
-      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12 mobile:px-6 mobile:py-8">
         <span className="max-w-[576px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
           {
             "Select agent category, describe desired behavior, and review AI-generated profile\n\n\n"
@@ -321,13 +323,13 @@ const Landing: React.FC = () => {
         </span>
       </div>
     </div>
-    <div className="flex w-full grow shrink-0 basis-0 flex-wrap items-center rounded-[32px] bg-default-background">
-      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12">
-        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] font-[900] leading-[40px] text-default-font text-center -tracking-[0.03em]">
+    <div className="flex w-full grow shrink-0 basis-0 flex-col mobile:flex-col lg:flex-row items-center rounded-[32px] bg-default-background">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center justify-center self-stretch px-12 py-12 mobile:px-6 mobile:py-8">
+        <span className="max-w-[384px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[40px] mobile:text-[32px] font-[900] leading-[40px] mobile:leading-[36px] text-default-font text-center -tracking-[0.03em]">
           {"DEPLOYMENT\n"}
         </span>
       </div>
-      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12">
+      <div className="flex min-w-[240px] grow shrink-0 basis-0 items-center gap-12 self-stretch px-12 py-12 mobile:px-6 mobile:py-8">
         <span className="max-w-[576px] grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[400] leading-[26px] text-default-font -tracking-[0.01em]">
           {
             "Pay deployment fee, agent automatically deploys with token generation\n\n\n"
