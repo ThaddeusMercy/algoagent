@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Heart, Dice6, ArrowRight, ArrowLeft, Upload, Mic, Volume2, Sparkles, Zap, CheckCircle } from 'lucide-react';
+import { Button, Switch } from '../ui';
+import { useNavigate } from 'react-router-dom';
 
 const agentTypes = [
   {
@@ -8,7 +10,7 @@ const agentTypes = [
     icon: Crown,
     title: 'Social Influencer Agent',
     description: 'AI-powered social media personality that engages with audiences',
-    color: 'from-pink-500 to-rose-500',
+    color: 'bg-brand-300',
     features: ['Social Media Integration', 'Audience Engagement', 'Content Generation', 'Brand Partnerships'],
     minTokens: 1000
   },
@@ -17,7 +19,7 @@ const agentTypes = [
     icon: Heart,
     title: 'AI Companion',
     description: 'Personalized AI agent for meaningful one-on-one interactions',
-    color: 'from-purple-500 to-indigo-500',
+    color: 'bg-error-900',
     features: ['Personalized Conversations', 'Memory Retention', 'Emotional Intelligence', 'Voice Interaction'],
     minTokens: 1000
   },
@@ -26,13 +28,14 @@ const agentTypes = [
     icon: Dice6,
     title: 'Game Master Agent',
     description: 'Automated storyteller that creates and runs immersive RPG adventures',
-    color: 'from-emerald-500 to-teal-500',
+    color: 'bg-neutral-800',
     features: ['Dynamic Storytelling', 'Player Adaptation', 'World Building', 'Quest Management'],
     minTokens: 1000
   }
 ];
 
 const CreateAgent: React.FC = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedType, setSelectedType] = useState<string>('');
   const [agentData, setAgentData] = useState({
@@ -75,40 +78,76 @@ const CreateAgent: React.FC = () => {
     switch (currentStep) {
       case 1:
         return (
-          <div className="space-y-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Choose Agent Type</h2>
-              <p className="text-gray-400">Select the type of AI agent you want to create</p>
+          <div className="flex w-full flex-col items-center justify-center gap-12 bg-brand-900 px-6 py-32">
+            <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
+              <span className="w-full font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
+                Choose Your Agent Type
+              </span>
+              <span className="max-w-[576px] font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white text-center -tracking-[0.015em]">
+                Select the type of AI agent you want to create and deploy on the Algorand blockchain
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex w-full max-w-[1280px] flex-wrap items-center justify-center gap-8">
               {agentTypes.map((type) => (
                 <motion.div
                   key={type.id}
                   onClick={() => setSelectedType(type.id)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`p-6 rounded-2xl border-2 cursor-pointer transition-all duration-200 ${
-                    selectedType === type.id
-                      ? 'border-purple-500 bg-purple-500/10'
-                      : 'border-gray-700 bg-gray-800/50 hover:border-gray-600'
-                  }`}
+                  className={`flex min-h-[400px] min-w-[320px] max-w-[384px] grow shrink-0 basis-0 flex-col items-start justify-between gap-8 self-stretch rounded-[32px] px-8 py-8 cursor-pointer transition-all duration-200 ${
+                    type.color
+                  } ${selectedType === type.id ? 'ring-4 ring-white/50' : ''}`}
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-r ${type.color} rounded-2xl flex items-center justify-center mb-4`}>
-                    <type.icon className="w-8 h-8 text-white" />
+                  <div className="flex w-full flex-col items-start justify-start gap-6">
+                    <div className={`flex w-16 h-16 items-center justify-center rounded-2xl ${
+                      type.id === 'influencer' ? 'bg-brand-900/20' : 'bg-white/20'
+                    }`}>
+                      <type.icon className={`w-8 h-8 ${
+                        type.id === 'influencer' ? 'text-brand-900' : 'text-white'
+                      }`} />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <span className={`font-['Montserrat'] text-[28px] font-[700] leading-[32px] -tracking-[0.025em] ${
+                        type.id === 'influencer' ? 'text-brand-900' : 'text-white'
+                      }`}>
+                        {type.title}
+                      </span>
+                      <span className={`font-['Montserrat'] text-[16px] font-[400] leading-[24px] -tracking-[0.01em] ${
+                        type.id === 'influencer' ? 'text-brand-900/80' : 'text-white/80'
+                      }`}>
+                        {type.description}
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{type.title}</h3>
-                  <p className="text-gray-400 mb-4">{type.description}</p>
-                  <div className="space-y-2">
-                    {type.features.slice(0, 2).map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                  
+                  <div className="flex w-full flex-col gap-4">
+                    {type.features.slice(0, 3).map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <CheckCircle className={`w-5 h-5 ${
+                          type.id === 'influencer' ? 'text-brand-900/60' : 'text-white/60'
+                        }`} />
+                        <span className={`font-['Montserrat'] text-[14px] font-[500] ${
+                          type.id === 'influencer' ? 'text-brand-900/80' : 'text-white/80'
+                        }`}>
+                          {feature}
+                        </span>
                       </div>
                     ))}
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-700">
-                    <span className="text-purple-400 font-semibold">Min: {type.minTokens} ALGO</span>
+                    <div className={`flex items-center justify-between pt-4 border-t ${
+                      type.id === 'influencer' ? 'border-brand-900/20' : 'border-white/20'
+                    }`}>
+                      <span className={`font-['Montserrat'] text-[16px] font-[600] ${
+                        type.id === 'influencer' ? 'text-brand-900' : 'text-white'
+                      }`}>
+                        Min: {type.minTokens} ALGO
+                      </span>
+                      {selectedType === type.id && (
+                        <CheckCircle className={`w-6 h-6 ${
+                          type.id === 'influencer' ? 'text-brand-900' : 'text-white'
+                        }`} />
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -118,60 +157,75 @@ const CreateAgent: React.FC = () => {
 
       case 2:
         return (
-          <div className="space-y-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Agent Configuration</h2>
-              <p className="text-gray-400">Describe your agent's personality and behavior</p>
+          <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-background px-6 py-32">
+            <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
+              <span className="w-full font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-brand-900 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
+                Configure Your Agent
+              </span>
+              <span className="max-w-[576px] font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-default-font text-center -tracking-[0.015em]">
+                Define your agent's personality, behavior, and core characteristics
+              </span>
             </div>
 
-            <div className="max-w-2xl mx-auto space-y-6">
-              <div>
-                <label className="block text-white font-semibold mb-2">Agent Name</label>
+            <div className="flex w-full max-w-[768px] flex-col gap-8">
+              <div className="flex w-full flex-col gap-4">
+                <span className="font-['Montserrat'] text-[20px] font-[600] text-brand-900 -tracking-[0.015em]">
+                  Agent Name
+                </span>
                 <input
                   type="text"
                   value={agentData.name}
                   onChange={(e) => setAgentData({...agentData, name: e.target.value})}
                   placeholder="Enter your agent's name"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-6 py-4 font-['Montserrat'] text-[16px] bg-white border-2 border-neutral-border rounded-[16px] text-default-font placeholder-default-font/60 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:border-brand-900"
                 />
               </div>
 
-              <div>
-                <label className="block text-white font-semibold mb-2">Description</label>
+              <div className="flex w-full flex-col gap-4">
+                <span className="font-['Montserrat'] text-[20px] font-[600] text-brand-900 -tracking-[0.015em]">
+                  Description
+                </span>
                 <textarea
                   value={agentData.description}
                   onChange={(e) => setAgentData({...agentData, description: e.target.value})}
                   placeholder="Describe what you want your agent to do and how it should behave..."
-                  rows={4}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  rows={5}
+                  className="w-full px-6 py-4 font-['Montserrat'] text-[16px] bg-white border-2 border-neutral-border rounded-[16px] text-default-font placeholder-default-font/60 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:border-brand-900 resize-none"
                 />
               </div>
 
-              <div>
-                <label className="block text-white font-semibold mb-2">Personality Traits</label>
+              <div className="flex w-full flex-col gap-4">
+                <span className="font-['Montserrat'] text-[20px] font-[600] text-brand-900 -tracking-[0.015em]">
+                  Personality Traits
+                </span>
                 <input
                   type="text"
                   value={agentData.personality}
                   onChange={(e) => setAgentData({...agentData, personality: e.target.value})}
                   placeholder="e.g., Friendly, Professional, Humorous, Creative"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-6 py-4 font-['Montserrat'] text-[16px] bg-white border-2 border-neutral-border rounded-[16px] text-default-font placeholder-default-font/60 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:border-brand-900"
                 />
               </div>
 
-              <div>
-                <label className="block text-white font-semibold mb-2">Agent Avatar</label>
-                <div className="flex items-center space-x-4">
-                  <div className="w-20 h-20 bg-gray-700/50 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-600">
+              <div className="flex w-full flex-col gap-4">
+                <span className="font-['Montserrat'] text-[20px] font-[600] text-brand-900 -tracking-[0.015em]">
+                  Agent Avatar
+                </span>
+                <div className="flex items-center gap-6">
+                  <div className="w-24 h-24 bg-neutral-100 rounded-[16px] flex items-center justify-center border-2 border-dashed border-neutral-border">
                     {agentData.avatar ? (
-                      <img src={agentData.avatar} alt="Avatar" className="w-full h-full object-cover rounded-xl" />
+                      <img src={agentData.avatar} alt="Avatar" className="w-full h-full object-cover rounded-[16px]" />
                     ) : (
-                      <Upload className="w-8 h-8 text-gray-400" />
+                      <Upload className="w-8 h-8 text-default-font/40" />
                     )}
                   </div>
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-gray-300 hover:bg-gray-600/50 transition-colors">
-                    <Upload className="w-4 h-4" />
-                    <span>Upload Image</span>
-                  </button>
+                  <Button
+                    variant="neutral-secondary"
+                    onClick={() => {}}
+                    icon={<Upload className="w-4 h-4" />}
+                  >
+                    Upload Image
+                  </Button>
                 </div>
               </div>
             </div>
@@ -180,46 +234,52 @@ const CreateAgent: React.FC = () => {
 
       case 3:
         return (
-          <div className="space-y-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Voice & Token Settings</h2>
-              <p className="text-gray-400">Configure voice capabilities and tokenization</p>
+          <div className="flex w-full flex-col items-center justify-center gap-12 bg-brand-900 px-6 py-32">
+            <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
+              <span className="w-full font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
+                Voice & Token Settings
+              </span>
+              <span className="max-w-[576px] font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white text-center -tracking-[0.015em]">
+                Configure voice capabilities and tokenization for your agent
+              </span>
             </div>
 
-            <div className="max-w-2xl mx-auto space-y-8">
+            <div className="flex w-full max-w-[768px] flex-col gap-8">
               {/* Voice Settings */}
-              <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center space-x-2">
-                  <Mic className="w-6 h-6" />
-                  <span>Voice Configuration</span>
-                </h3>
+              <div className="flex w-full flex-col gap-8 rounded-[32px] border border-white/20 bg-white/5 px-8 py-8">
+                <div className="flex items-center gap-4">
+                  <div className="flex w-12 h-12 items-center justify-center rounded-xl bg-white/10">
+                    <Mic className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="font-['Montserrat'] text-[24px] font-[700] text-white -tracking-[0.02em]">
+                    Voice Configuration
+                  </span>
+                </div>
                 
-                <div className="space-y-4">
+                <div className="flex w-full flex-col gap-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-white">Enable Voice Interaction</span>
-                    <button
-                      onClick={() => setAgentData({...agentData, voiceEnabled: !agentData.voiceEnabled})}
-                      className={`w-12 h-6 rounded-full transition-colors ${
-                        agentData.voiceEnabled ? 'bg-purple-600' : 'bg-gray-600'
-                      }`}
-                    >
-                      <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                        agentData.voiceEnabled ? 'translate-x-6' : 'translate-x-0.5'
-                      }`} />
-                    </button>
+                    <span className="font-['Montserrat'] text-[18px] font-[500] text-white">
+                      Enable Voice Interaction
+                    </span>
+                    <Switch
+                      checked={agentData.voiceEnabled}
+                      onCheckedChange={(checked) => setAgentData({...agentData, voiceEnabled: checked})}
+                    />
                   </div>
 
                   {agentData.voiceEnabled && (
-                    <div>
-                      <label className="block text-white font-semibold mb-2">Voice Type</label>
+                    <div className="flex w-full flex-col gap-4">
+                      <span className="font-['Montserrat'] text-[16px] font-[600] text-white">
+                        Voice Type
+                      </span>
                       <select
                         value={agentData.voiceType}
                         onChange={(e) => setAgentData({...agentData, voiceType: e.target.value})}
-                        className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-6 py-4 font-['Montserrat'] text-[16px] bg-white/10 border border-white/20 rounded-[16px] text-white focus:outline-none focus:ring-2 focus:ring-brand-300"
                       >
-                        <option value="female">Female Voice</option>
-                        <option value="male">Male Voice</option>
-                        <option value="neutral">Neutral Voice</option>
+                        <option value="female" className="text-black">Female Voice</option>
+                        <option value="male" className="text-black">Male Voice</option>
+                        <option value="neutral" className="text-black">Neutral Voice</option>
                       </select>
                     </div>
                   )}
@@ -227,47 +287,51 @@ const CreateAgent: React.FC = () => {
               </div>
 
               {/* Token Settings */}
-              <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center space-x-2">
-                  <Zap className="w-6 h-6" />
-                  <span>Token Generation</span>
-                </h3>
+              <div className="flex w-full flex-col gap-8 rounded-[32px] border border-white/20 bg-white/5 px-8 py-8">
+                <div className="flex items-center gap-4">
+                  <div className="flex w-12 h-12 items-center justify-center rounded-xl bg-white/10">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="font-['Montserrat'] text-[24px] font-[700] text-white -tracking-[0.02em]">
+                    Token Generation
+                  </span>
+                </div>
                 
-                <div className="space-y-4">
+                <div className="flex w-full flex-col gap-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-white">Generate Agent Token</span>
-                    <button
-                      onClick={() => setAgentData({...agentData, generateToken: !agentData.generateToken})}
-                      className={`w-12 h-6 rounded-full transition-colors ${
-                        agentData.generateToken ? 'bg-purple-600' : 'bg-gray-600'
-                      }`}
-                    >
-                      <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                        agentData.generateToken ? 'translate-x-6' : 'translate-x-0.5'
-                      }`} />
-                    </button>
+                    <span className="font-['Montserrat'] text-[18px] font-[500] text-white">
+                      Generate Agent Token
+                    </span>
+                    <Switch
+                      checked={agentData.generateToken}
+                      onCheckedChange={(checked) => setAgentData({...agentData, generateToken: checked})}
+                    />
                   </div>
 
                   {agentData.generateToken && (
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-white font-semibold mb-2">Token Name</label>
+                    <div className="flex w-full flex-wrap gap-6">
+                      <div className="flex min-w-[240px] grow shrink-0 basis-0 flex-col gap-4">
+                        <span className="font-['Montserrat'] text-[16px] font-[600] text-white">
+                          Token Name
+                        </span>
                         <input
                           type="text"
                           value={agentData.tokenName}
                           onChange={(e) => setAgentData({...agentData, tokenName: e.target.value})}
                           placeholder="Agent Token"
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-6 py-4 font-['Montserrat'] text-[16px] bg-white/10 border border-white/20 rounded-[16px] text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-brand-300"
                         />
                       </div>
-                      <div>
-                        <label className="block text-white font-semibold mb-2">Token Symbol</label>
+                      <div className="flex min-w-[240px] grow shrink-0 basis-0 flex-col gap-4">
+                        <span className="font-['Montserrat'] text-[16px] font-[600] text-white">
+                          Token Symbol
+                        </span>
                         <input
                           type="text"
                           value={agentData.tokenSymbol}
                           onChange={(e) => setAgentData({...agentData, tokenSymbol: e.target.value.toUpperCase()})}
                           placeholder="AGT"
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-6 py-4 font-['Montserrat'] text-[16px] bg-white/10 border border-white/20 rounded-[16px] text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-brand-300"
                         />
                       </div>
                     </div>
@@ -280,57 +344,107 @@ const CreateAgent: React.FC = () => {
 
       case 4:
         return (
-          <div className="space-y-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Review & Deploy</h2>
-              <p className="text-gray-400">Review your agent configuration before deployment</p>
+          <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-background px-6 py-32">
+            <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
+              <span className="w-full font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-brand-900 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
+                Review & Deploy
+              </span>
+              <span className="max-w-[576px] font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-default-font text-center -tracking-[0.015em]">
+                Review your agent configuration before deploying to the blockchain
+              </span>
             </div>
 
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 space-y-6">
-                <div className="flex items-center space-x-4">
+            <div className="flex w-full max-w-[768px] flex-col gap-8">
+              <div className="flex w-full flex-col gap-8 rounded-[32px] border border-neutral-border bg-white px-8 py-8">
+                <div className="flex items-center gap-6">
                   {selectedAgentType && (
-                    <div className={`w-16 h-16 bg-gradient-to-r ${selectedAgentType.color} rounded-2xl flex items-center justify-center`}>
-                      <selectedAgentType.icon className="w-8 h-8 text-white" />
+                    <div className={`w-20 h-20 ${selectedAgentType.color} rounded-[20px] flex items-center justify-center`}>
+                      <selectedAgentType.icon className="w-10 h-10 text-white" />
                     </div>
                   )}
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">{agentData.name || 'Unnamed Agent'}</h3>
-                    <p className="text-gray-400">{selectedAgentType?.title}</p>
+                  <div className="flex flex-col gap-2">
+                    <span className="font-['Montserrat'] text-[32px] font-[700] text-brand-900 -tracking-[0.025em]">
+                      {agentData.name || 'Unnamed Agent'}
+                    </span>
+                    <span className="font-['Montserrat'] text-[18px] font-[500] text-default-font/60">
+                      {selectedAgentType?.title}
+                    </span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Description</h4>
-                    <p className="text-gray-400 text-sm">{agentData.description || 'No description provided'}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex flex-col gap-3">
+                    <span className="font-['Montserrat'] text-[18px] font-[600] text-brand-900">
+                      Description
+                    </span>
+                    <span className="font-['Montserrat'] text-[16px] font-[400] text-default-font leading-[24px]">
+                      {agentData.description || 'No description provided'}
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Personality</h4>
-                    <p className="text-gray-400 text-sm">{agentData.personality || 'No personality defined'}</p>
+                  <div className="flex flex-col gap-3">
+                    <span className="font-['Montserrat'] text-[18px] font-[600] text-brand-900">
+                      Personality
+                    </span>
+                    <span className="font-['Montserrat'] text-[16px] font-[400] text-default-font leading-[24px]">
+                      {agentData.personality || 'No personality defined'}
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Voice Enabled</h4>
-                    <p className="text-gray-400 text-sm">{agentData.voiceEnabled ? `Yes (${agentData.voiceType})` : 'No'}</p>
+                  <div className="flex flex-col gap-3">
+                    <span className="font-['Montserrat'] text-[18px] font-[600] text-brand-900">
+                      Voice Enabled
+                    </span>
+                    <span className="font-['Montserrat'] text-[16px] font-[400] text-default-font leading-[24px]">
+                      {agentData.voiceEnabled ? `Yes (${agentData.voiceType})` : 'No'}
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Token Generation</h4>
-                    <p className="text-gray-400 text-sm">
+                  <div className="flex flex-col gap-3">
+                    <span className="font-['Montserrat'] text-[18px] font-[600] text-brand-900">
+                      Token Generation
+                    </span>
+                    <span className="font-['Montserrat'] text-[16px] font-[400] text-default-font leading-[24px]">
                       {agentData.generateToken ? `${agentData.tokenName} (${agentData.tokenSymbol})` : 'No token'}
-                    </p>
+                    </span>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-700 pt-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-white font-semibold">Deployment Cost</span>
-                    <span className="text-2xl font-bold text-purple-400">1,000 ALGO</span>
+                <div className="border-t border-neutral-border pt-8">
+                  <div className="flex justify-between items-center mb-6">
+                    <span className="font-['Montserrat'] text-[24px] font-[700] text-brand-900">
+                      Deployment Cost
+                    </span>
+                    <span className="font-['Montserrat'] text-[36px] font-[900] text-brand-900">
+                      1,000 ALGO
+                    </span>
                   </div>
-                  <div className="text-sm text-gray-400 space-y-1">
-                    <p>• Agent creation and deployment</p>
-                    <p>• Smart contract initialization</p>
-                    {agentData.generateToken && <p>• Token generation and liquidity pool</p>}
-                    {agentData.voiceEnabled && <p>• Voice synthesis setup</p>}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-success-600" />
+                      <span className="font-['Montserrat'] text-[16px] font-[500] text-default-font">
+                        Agent creation and deployment
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-success-600" />
+                      <span className="font-['Montserrat'] text-[16px] font-[500] text-default-font">
+                        Smart contract initialization
+                      </span>
+                    </div>
+                    {agentData.generateToken && (
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-success-600" />
+                        <span className="font-['Montserrat'] text-[16px] font-[500] text-default-font">
+                          Token generation and liquidity pool
+                        </span>
+                      </div>
+                    )}
+                    {agentData.voiceEnabled && (
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-success-600" />
+                        <span className="font-['Montserrat'] text-[16px] font-[500] text-default-font">
+                          Voice synthesis setup
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -345,24 +459,52 @@ const CreateAgent: React.FC = () => {
 
   if (creationComplete) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 flex items-center justify-center p-6">
+      <div className="flex w-full min-h-screen flex-col items-center justify-center gap-12 bg-brand-900 px-6 py-32">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-center space-y-6"
+          className="flex flex-col items-center gap-8"
         >
-          <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto">
-            <CheckCircle className="w-12 h-12 text-white" />
+          <div className="w-32 h-32 bg-success-600 rounded-full flex items-center justify-center">
+            <CheckCircle className="w-16 h-16 text-white" />
           </div>
-          <h1 className="text-4xl font-bold text-white">Agent Created Successfully!</h1>
-          <p className="text-xl text-gray-300">Your AI agent is now live on the Algorand blockchain</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-200">
+          <div className="flex flex-col items-center gap-4">
+            <span className="font-['Montserrat'] text-[64px] font-[900] leading-[64px] text-brand-300 text-center -tracking-[0.04em] mobile:text-[48px] mobile:leading-[48px]">
+              Agent Created Successfully!
+            </span>
+            <span className="font-['Montserrat'] text-[24px] font-[500] text-white text-center">
+              Your AI agent is now live on the Algorand blockchain
+            </span>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button
+              size="large"
+              onClick={() => navigate('/agents')}
+            >
               View Agent
-            </button>
-            <button className="px-8 py-3 bg-gray-800/50 border border-gray-600/50 text-white rounded-xl font-semibold hover:bg-gray-700/50 transition-all duration-200">
+            </Button>
+            <Button
+              variant="brand-secondary"
+              size="large"
+              onClick={() => {
+                setCreationComplete(false);
+                setCurrentStep(1);
+                setSelectedType('');
+                setAgentData({
+                  name: '',
+                  description: '',
+                  personality: '',
+                  avatar: '',
+                  voiceEnabled: false,
+                  voiceType: 'female',
+                  generateToken: true,
+                  tokenName: '',
+                  tokenSymbol: ''
+                });
+              }}
+            >
               Create Another
-            </button>
+            </Button>
           </div>
         </motion.div>
       </div>
@@ -370,87 +512,73 @@ const CreateAgent: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 p-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-white">Create AI Agent</h1>
-            <span className="text-gray-400">Step {currentStep} of 4</span>
-          </div>
-          <div className="w-full bg-gray-700 rounded-full h-2">
-            <div 
-              className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${(currentStep / 4) * 100}%` }}
-            />
-          </div>
+    <div className="min-h-screen">
+      {/* Progress Section */}
+      <div className="flex w-full flex-col items-center justify-center gap-8 bg-default-font px-6 py-16">
+        <div className="flex w-full max-w-[1024px] items-center justify-between">
+          <span className="font-['Montserrat'] text-[48px] font-[900] leading-[48px] text-white -tracking-[0.04em] mobile:text-[36px] mobile:leading-[36px]">
+            Create AI Agent
+          </span>
+          <span className="font-['Montserrat'] text-[20px] font-[500] text-white/60">
+            Step {currentStep} of 4
+          </span>
         </div>
+        <div className="w-full max-w-[1024px] bg-white/20 rounded-full h-3">
+          <div 
+            className="bg-brand-300 h-3 rounded-full transition-all duration-500"
+            style={{ width: `${(currentStep / 4) * 100}%` }}
+          />
+        </div>
+      </div>
 
-        {/* Step Content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentStep}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            {renderStepContent()}
-          </motion.div>
-        </AnimatePresence>
+      {/* Step Content */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+        >
+          {renderStepContent()}
+        </motion.div>
+      </AnimatePresence>
 
-        {/* Navigation */}
-        <div className="flex justify-between items-center mt-12">
-          <button
+      {/* Navigation */}
+      <div className="flex w-full items-center justify-center bg-white px-6 py-16">
+        <div className="flex w-full max-w-[1024px] items-center justify-between">
+          <Button
+            variant="neutral-secondary"
+            size="large"
             onClick={handleBack}
             disabled={currentStep === 1}
-            className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
-              currentStep === 1
-                ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-                : 'bg-gray-800/50 border border-gray-600/50 text-white hover:bg-gray-700/50'
-            }`}
+            icon={<ArrowLeft className="w-5 h-5" />}
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back</span>
-          </button>
+            Back
+          </Button>
 
           {currentStep === 4 ? (
-            <motion.button
+            <Button
+              size="large"
               onClick={handleCreateAgent}
               disabled={isCreating || !selectedType || !agentData.name}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`flex items-center space-x-2 px-8 py-3 rounded-xl font-semibold transition-all duration-200 ${
-                isCreating || !selectedType || !agentData.name
-                  ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
-              }`}
-            >
-              {isCreating ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Creating Agent...</span>
-                </>
+              icon={isCreating ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               ) : (
-                <>
-                  <Sparkles className="w-5 h-5" />
-                  <span>Deploy Agent</span>
-                </>
+                <Sparkles className="w-5 h-5" />
               )}
-            </motion.button>
+            >
+              {isCreating ? 'Creating Agent...' : 'Deploy Agent'}
+            </Button>
           ) : (
-            <button
+            <Button
+              size="large"
               onClick={handleNext}
               disabled={currentStep === 1 && !selectedType}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
-                (currentStep === 1 && !selectedType)
-                  ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
-              }`}
+              iconRight={<ArrowRight className="w-5 h-5" />}
             >
-              <span>Next</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+              Next
+            </Button>
           )}
         </div>
       </div>
