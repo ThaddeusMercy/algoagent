@@ -329,7 +329,91 @@ const Dashboard: React.FC = () => {
           transition={{ delay: 0.7 }}
           className="bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700/50 p-6"
         >
-          
+          <div className="flex w-full flex-col items-center justify-center gap-12 bg-default-background px-6 py-32">
+  <div className="flex w-full max-w-[1024px] flex-col items-center justify-center gap-8">
+    <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[62px] font-[900] leading-[58px] text-brand-900 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[48px] mobile:font-[900] mobile:leading-[44px] mobile:tracking-normal">
+      {"LET'S ANSWER YOUR QUESTIONS\n"}
+    </span>
+  </div>
+  <div className="flex w-full max-w-[1024px] flex-col items-center justify-center">
+    <Accordion
+      trigger={
+        <div className="flex w-full items-center gap-2 px-4 py-4">
+          <span className="grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[600] leading-[26px] text-default-font -tracking-[0.01em]">
+            {"What exactly is a decentralized AI agent?\n\n"}
+          </span>
+          <Accordion.Chevron />
+        </div>
+      }
+      defaultOpen={true}
+    >
+      <div className="flex w-full grow shrink-0 basis-0 flex-col items-start gap-6 px-4 py-4">
+        <span className="w-full whitespace-pre-wrap font-['Montserrat'] text-[16px] font-[500] leading-[24px] text-default-font -tracking-[0.01em]">
+          {
+            "A decentralized AI agent is an autonomous digital persona deployed on-chain. Once launched, it lives independently on the blockchain, executing behaviors, interacting with users, and even earning via its own token.\n\n\n"
+          }
+        </span>
+      </div>
+    </Accordion>
+    <Accordion
+      trigger={
+        <div className="flex w-full items-center gap-2 px-4 py-4">
+          <span className="grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[600] leading-[28px] text-default-font -tracking-[0.01em]">
+            {"Do I need to code to create an agent?\n\n"}
+          </span>
+          <Accordion.Chevron />
+        </div>
+      }
+      defaultOpen={true}
+    >
+      <div className="flex w-full grow shrink-0 basis-0 flex-col items-start gap-6 px-4 py-4">
+        <span className="w-full whitespace-pre-wrap font-['Montserrat'] text-[16px] font-[500] leading-[24px] text-default-font -tracking-[0.01em]">
+          {
+            "Not at all. Our no-code neural interface translates plain-text prompts into fully configured agents. Just describe the vibe — we handle the rest.\n\n\n"
+          }
+        </span>
+      </div>
+    </Accordion>
+    <Accordion
+      trigger={
+        <div className="flex w-full items-center gap-2 px-4 py-4">
+          <span className="grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[600] leading-[28px] text-default-font -tracking-[0.01em]">
+            {"How does tokenization work for my agent?\n\n"}
+          </span>
+          <Accordion.Chevron />
+        </div>
+      }
+      defaultOpen={true}
+    >
+      <div className="flex w-full grow shrink-0 basis-0 flex-col items-start gap-6 px-4 py-4">
+        <span className="w-full whitespace-pre-wrap font-['Montserrat'] text-[16px] font-[500] leading-[24px] text-default-font -tracking-[0.01em]">
+          {
+            "Once deployed, your agent gets its own smart contract and native token. These tokens can be distributed, traded, or used to govern your agent's behavior depending on your setup.\n\n\n"
+          }
+        </span>
+      </div>
+    </Accordion>
+    <Accordion
+      trigger={
+        <div className="flex w-full items-center gap-2 px-4 py-4">
+          <span className="grow shrink-0 basis-0 whitespace-pre-wrap font-['Montserrat'] text-[18px] font-[600] leading-[28px] text-default-font -tracking-[0.01em]">
+            {"Why launch on Algorand?\n\n"}
+          </span>
+          <Accordion.Chevron />
+        </div>
+      }
+      defaultOpen={true}
+    >
+      <div className="flex w-full grow shrink-0 basis-0 flex-col items-start gap-6 px-4 py-4">
+        <span className="w-full whitespace-pre-wrap font-['Montserrat'] text-[16px] font-[500] leading-[24px] text-default-font -tracking-[0.01em]">
+          {
+            "Speed, low fees, and chain-native finality. Your agents won’t just act fast—they’ll exist in a network optimized for high-frequency, low-latency interactions.\n\n\n"
+          }
+        </span>
+      </div>
+    </Accordion>
+  </div>
+</div>
         </motion.div>
       </div>
     </div>
