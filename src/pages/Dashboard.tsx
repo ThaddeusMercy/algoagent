@@ -86,7 +86,32 @@ const Dashboard: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 p-6">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Hero Section */}
-       
+       <div className="flex w-full flex-col items-center justify-center gap-8 bg-brand-900 px-6 py-32 mobile:px-6 mobile:py-32">
+  <span className="w-full max-w-[768px] whitespace-pre-wrap font-['Montserrat'] text-[96px] font-[900] leading-[84px] text-brand-300 text-center -tracking-[0.04em] mobile:font-['Montserrat'] mobile:text-[62px] mobile:font-[900] mobile:leading-[58px] mobile:tracking-normal">
+    {"CHAIN AGENT:\nDECENTRALIZED AI AGENT  "}
+  </span>
+  <span className="max-w-[576px] whitespace-pre-wrap font-['Montserrat'] text-[20px] font-[400] leading-[28px] text-white text-center -tracking-[0.015em]">
+    {
+      "Create, tokenize, and deploy AI agents on the Algorand blockchain. Build social influencers, AI companions, and game masters with our no-code platform.\n\n"
+    }
+  </span>
+  <div className="flex flex-wrap items-center justify-center gap-6">
+    <Button
+      size="large"
+      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+    >
+      Create Your First Agent
+    </Button>
+    <Button
+      variant="brand-secondary"
+      size="large"
+      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+    >
+      Explore Marketplace
+    </Button>
+  </div>
+</div>
+
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
